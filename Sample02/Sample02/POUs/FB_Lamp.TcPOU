@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_Lamp" Id="{97bddd59-a325-4ddf-9d6f-0fca30c94781}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK PUBLIC ABSTRACT FB_Lamp IMPLEMENTS I_Subject, I_Lamp
+VAR
+	_ipObserver			: I_Observer;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="Attach" Id="{a057e1d6-aa74-421b-bd12-c7ff764a03a3}">
+      <Declaration><![CDATA[METHOD Attach
+VAR_INPUT
+	ipObserver		: I_Observer;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF (ipObserver = 0) THEN
+	RETURN;
+END_IF
+_ipObserver := ipObserver;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Detach" Id="{cf3106ba-b1dc-4650-8704-0eedbfba2e23}">
+      <Declaration><![CDATA[METHOD Detach
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[_ipObserver := 0;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="DimDown" Id="{8b7f88b1-e292-4c2a-aae1-75588f41b571}">
+      <Declaration><![CDATA[// Reduces the control value by 5 in the range of 10 to 100.
+METHOD PUBLIC ABSTRACT DimDown
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="DimUp" Id="{9fe37ea9-5990-4433-83f7-0a1847779f2a}">
+      <Declaration><![CDATA[// Increments the control value by 5 in the range of 10 to 100.
+METHOD PUBLIC ABSTRACT DimUp
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Off" Id="{f3e9436a-390c-4279-8082-229c248a628e}">
+      <Declaration><![CDATA[// Sets the control value to 0.
+METHOD PUBLIC ABSTRACT Off
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="On" Id="{1431a5df-dca8-4bc8-baee-a7920fa71212}">
+      <Declaration><![CDATA[// Sets the control value to 100.
+METHOD PUBLIC ABSTRACT On
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_Lamp">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Lamp.Attach">
+      <LineId Id="7" Count="2" />
+      <LineId Id="6" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Lamp.Detach">
+      <LineId Id="3" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Lamp.DimDown">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Lamp.DimUp">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Lamp.Off">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Lamp.On">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

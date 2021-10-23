@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <Itf Name="I_Lamp" Id="{40d65e5d-c62e-4ae9-99b2-81cac6219b58}">
+    <Declaration><![CDATA[INTERFACE I_Lamp
+]]></Declaration>
+    <Method Name="DimDown" Id="{115327b1-6bf2-4c16-9a9f-a18c6ce596de}">
+      <Declaration><![CDATA[// Reduces the control value by 5 in the range of 10 to 100.
+METHOD DimDown
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="DimUp" Id="{a3496324-aff1-493c-b1fe-bca8e24375de}">
+      <Declaration><![CDATA[// Increments the control value by 5 in the range of 10 to 100.
+METHOD DimUp
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="Off" Id="{41442249-3f36-4f25-8a08-dcf9ed83b1a4}">
+      <Declaration><![CDATA[// Sets the control value to 0.
+METHOD Off
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="On" Id="{cf966bca-c883-4241-bf92-18c599ea3864}">
+      <Declaration><![CDATA[// Sets the control value to 100.
+METHOD On
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

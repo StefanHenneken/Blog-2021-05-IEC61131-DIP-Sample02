@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <Itf Name="I_Subject" Id="{0d44c8be-0665-46e8-b63d-da6d844513a0}">
+    <Declaration><![CDATA[INTERFACE I_Subject EXTENDS __SYSTEM.IQueryInterface
+]]></Declaration>
+    <Method Name="Attach" Id="{c9c8f916-2283-45d3-83cd-a6a37f088420}">
+      <Declaration><![CDATA[METHOD Attach
+VAR_INPUT
+	ipObserver		: I_Observer;
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="Detach" Id="{5f9884af-b656-49c0-982a-734534651c4a}">
+      <Declaration><![CDATA[METHOD Detach
+]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

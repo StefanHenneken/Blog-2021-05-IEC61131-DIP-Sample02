@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_LampSetDirect" Id="{c9363aa1-33e3-41da-adea-7faeb59d6855}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK PUBLIC FB_LampSetDirect EXTENDS FB_Lamp
+VAR
+	nLightLevel			: BYTE(0..100);
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="DimDown" Id="{b90d3b74-1a90-4f15-84df-bd103eb2839f}">
+      <Declaration><![CDATA[// Reduces the control value by 5 in the range of 10 to 100.
+METHOD PUBLIC DimDown
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF (nLightLevel >= 15) THEN
+	SetLightLevel(nLightLevel - 5);
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="DimUp" Id="{14eaeaf5-74a2-48eb-83f1-083b8b2dce0e}">
+      <Declaration><![CDATA[// Increments the control value by 5 in the range of 10 to 100.
+METHOD PUBLIC DimUp
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF (nLightLevel <= 95) THEN
+	SetLightLevel(nLightLevel + 5);
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Off" Id="{28372a2b-69a1-43d3-97df-f71c4a0264b6}">
+      <Declaration><![CDATA[// Sets the control value to 0.
+METHOD PUBLIC Off
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[SetLightLevel(0);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="On" Id="{c86e14d4-f798-4427-9c52-89a5594d2119}">
+      <Declaration><![CDATA[// Sets the control value to 100.
+METHOD PUBLIC On
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[SetLightLevel(100);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="SetLightLevel" Id="{4b6fea93-5fee-4ee1-8a77-261782e46dcf}">
+      <Declaration><![CDATA[// Sets the control value to a value between 0 and 100.
+METHOD PUBLIC SetLightLevel
+VAR_INPUT
+	nNewLightLevel		: BYTE(0..100);
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[nLightLevel := nNewLightLevel;
+IF (_ipObserver <> 0) THEN
+	_ipObserver.Update(nLightLevel);
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_LampSetDirect">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_LampSetDirect.DimDown">
+      <LineId Id="5" Count="1" />
+      <LineId Id="4" Count="0" />
+      <LineId Id="7" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_LampSetDirect.DimUp">
+      <LineId Id="5" Count="1" />
+      <LineId Id="4" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_LampSetDirect.Off">
+      <LineId Id="4" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_LampSetDirect.On">
+      <LineId Id="4" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_LampSetDirect.SetLightLevel">
+      <LineId Id="19" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="18" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

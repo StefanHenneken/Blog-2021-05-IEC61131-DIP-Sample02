@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_Controller" Id="{057b5bd1-e33b-44a4-8eb0-93b60ce9e81d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK PUBLIC FB_Controller
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	fbActualValue		: FB_AnalogValue;
+	_refActiveLamp		: REFERENCE TO FB_Lamp;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="DimDown" Id="{130de151-930d-42fb-84c7-94f9e80ef2d1}">
+      <Declaration><![CDATA[// Reduces the control value by 5 in the range of 10 to 100.
+METHOD PUBLIC DimDown
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF (__ISVALIDREF(_refActiveLamp)) THEN
+	_refActiveLamp.DimDown();
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="DimUp" Id="{6fad7f57-9367-4e6e-ba7a-7dfd0e3aeed8}">
+      <Declaration><![CDATA[// Increments the control value by 5 in the range of 10 to 100.
+METHOD PUBLIC DimUp
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF (__ISVALIDREF(_refActiveLamp)) THEN
+	_refActiveLamp.DimUp();
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Off" Id="{9d5e0538-50dd-4f19-a271-b30075978c0e}">
+      <Declaration><![CDATA[// Sets the control value to 0.
+METHOD PUBLIC Off
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF (__ISVALIDREF(_refActiveLamp)) THEN
+	_refActiveLamp.Off();
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="On" Id="{89c7d278-6585-48c0-967a-839fca58784f}">
+      <Declaration><![CDATA[// Sets the control value to 100.
+METHOD PUBLIC On
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF (__ISVALIDREF(_refActiveLamp)) THEN
+	_refActiveLamp.On();
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="refActiveLamp" Id="{ec0f52a6-c70f-42f8-9c3a-71f12596d6fa}">
+      <Declaration><![CDATA[PROPERTY PUBLIC refActiveLamp : REFERENCE TO FB_Lamp]]></Declaration>
+      <Get Name="Get" Id="{a21c5761-4c53-497c-bcc5-11c88e64a910}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[refActiveLamp := _refActiveLamp;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{a6e8f2a1-2c1c-402e-abad-b72a09e11163}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF (__ISVALIDREF(_refActiveLamp)) THEN
+	_refActiveLamp.Detach();
+END_IF
+
+_refActiveLamp REF= refActiveLamp;
+
+IF (__ISVALIDREF(refActiveLamp)) THEN
+	refActiveLamp.Attach(fbActualValue);
+END_IF
+]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <LineIds Name="FB_Controller">
+      <LineId Id="38" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Controller.DimDown">
+      <LineId Id="5" Count="0" />
+      <LineId Id="103" Count="1" />
+    </LineIds>
+    <LineIds Name="FB_Controller.DimUp">
+      <LineId Id="12" Count="1" />
+      <LineId Id="10" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Controller.Off">
+      <LineId Id="16" Count="1" />
+      <LineId Id="14" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Controller.On">
+      <LineId Id="16" Count="1" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="18" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Controller.refActiveLamp.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Controller.refActiveLamp.Set">
+      <LineId Id="17" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="22" Count="3" />
+      <LineId Id="21" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
