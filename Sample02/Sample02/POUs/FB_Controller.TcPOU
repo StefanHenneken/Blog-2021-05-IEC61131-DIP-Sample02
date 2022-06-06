@@ -62,7 +62,7 @@ END_IF
 END_VAR
 ]]></Declaration>
         <Implementation>
-          <ST><![CDATA[refActiveLamp := _refActiveLamp;]]></ST>
+          <ST><![CDATA[refActiveLamp REF= _refActiveLamp;]]></ST>
         </Implementation>
       </Get>
       <Set Name="Set" Id="{a6e8f2a1-2c1c-402e-abad-b72a09e11163}">
