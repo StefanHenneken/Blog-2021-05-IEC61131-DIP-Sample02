@@ -6,7 +6,7 @@
     <Method Name="Update" Id="{975a63c2-7d49-4b17-9936-5f690435e016}">
       <Declaration><![CDATA[METHOD Update : BYTE
 VAR_INPUT
-	nNewValue		: BYTE(0..100);
+	nNewValue		: BYTE;
 END_VAR
 ]]></Declaration>
     </Method>
