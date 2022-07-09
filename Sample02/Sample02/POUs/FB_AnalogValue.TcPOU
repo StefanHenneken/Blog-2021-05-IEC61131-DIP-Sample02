@@ -7,14 +7,14 @@ END_VAR
 VAR_OUTPUT
 END_VAR
 VAR
-	_nActualValue		: BYTE(0..100);
+	_nActualValue		: BYTE;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[]]></ST>
     </Implementation>
     <Property Name="nValue" Id="{a61bde19-c47d-43bf-afc1-3803844d2ff4}">
-      <Declaration><![CDATA[PROPERTY nValue : BYTE (0..100)]]></Declaration>
+      <Declaration><![CDATA[PROPERTY nValue : BYTE]]></Declaration>
       <Get Name="Get" Id="{1a940b24-2370-44d0-aa60-57f549af0c9e}">
         <Declaration><![CDATA[VAR
 END_VAR
@@ -27,7 +27,7 @@ END_VAR
     <Method Name="Update" Id="{9b5a5192-fb75-4a36-8565-4fb8512337b8}">
       <Declaration><![CDATA[METHOD Update : BYTE
 VAR_INPUT
-	nNewValue		: BYTE(0..100);
+	nNewValue		: BYTE;
 END_VAR
 ]]></Declaration>
       <Implementation>
