@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <Itf Name="I_Observer" Id="{ad922435-6e6d-45d3-94ba-ef34a18789aa}">
     <Declaration><![CDATA[INTERFACE I_Observer EXTENDS __System.IQueryInterface
 ]]></Declaration>
     <Method Name="Update" Id="{975a63c2-7d49-4b17-9936-5f690435e016}">
-      <Declaration><![CDATA[METHOD Update : BYTE
+      <Declaration><![CDATA[METHOD Update
 VAR_INPUT
-	nNewValue		: BYTE;
+	nNewValue		: USINT;
 END_VAR
 ]]></Declaration>
     </Method>

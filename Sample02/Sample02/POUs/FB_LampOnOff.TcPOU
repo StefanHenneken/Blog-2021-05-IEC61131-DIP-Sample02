@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="FB_LampOnOff" Id="{55e66dc1-05c3-43f8-9bc8-5075ca0cd865}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK PUBLIC FB_LampOnOff EXTENDS FB_Lamp 
 VAR
-	nLightLevel			: BYTE(0..100);
+	nLightLevel			: USINT;
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[]]></ST>
@@ -47,26 +47,5 @@ IF (_ipObserver <> 0) THEN
 END_IF]]></ST>
       </Implementation>
     </Method>
-    <LineIds Name="FB_LampOnOff">
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_LampOnOff.DimDown">
-      <LineId Id="4" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_LampOnOff.DimUp">
-      <LineId Id="4" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_LampOnOff.Off">
-      <LineId Id="11" Count="0" />
-      <LineId Id="5" Count="0" />
-      <LineId Id="2" Count="0" />
-      <LineId Id="6" Count="1" />
-    </LineIds>
-    <LineIds Name="FB_LampOnOff.On">
-      <LineId Id="9" Count="0" />
-      <LineId Id="5" Count="0" />
-      <LineId Id="2" Count="0" />
-      <LineId Id="6" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

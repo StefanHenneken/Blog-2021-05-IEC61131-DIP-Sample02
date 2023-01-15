@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="FB_LampUpDown" Id="{e5938590-1890-43a0-ba86-32547ab377e2}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK PUBLIC FB_LampUpDown EXTENDS FB_Lamp
 VAR
-	nLightLevel			: BYTE(0..100);
+	nLightLevel			: USINT;
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[]]></ST>
@@ -100,44 +100,5 @@ IF (_ipObserver <> 0) THEN
 end_IF]]></ST>
       </Implementation>
     </Method>
-    <LineIds Name="FB_LampUpDown">
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_LampUpDown.DimDown">
-      <LineId Id="13" Count="5" />
-      <LineId Id="4" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_LampUpDown.DimUp">
-      <LineId Id="13" Count="5" />
-      <LineId Id="4" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_LampUpDown.Off">
-      <LineId Id="5" Count="1" />
-      <LineId Id="4" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_LampUpDown.On">
-      <LineId Id="5" Count="1" />
-      <LineId Id="4" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_LampUpDown.OneStepDown">
-      <LineId Id="38" Count="0" />
-      <LineId Id="40" Count="1" />
-      <LineId Id="39" Count="0" />
-      <LineId Id="33" Count="0" />
-      <LineId Id="30" Count="0" />
-      <LineId Id="34" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_LampUpDown.OneStepUp">
-      <LineId Id="21" Count="5" />
-      <LineId Id="19" Count="0" />
-      <LineId Id="18" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_LampUpDown.OnOff">
-      <LineId Id="32" Count="3" />
-      <LineId Id="31" Count="0" />
-      <LineId Id="25" Count="0" />
-      <LineId Id="22" Count="0" />
-      <LineId Id="26" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="FB_Controller" Id="{057b5bd1-e33b-44a4-8eb0-93b60ce9e81d}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK PUBLIC FB_Controller
 VAR_INPUT
@@ -71,6 +71,7 @@ END_VAR
 ]]></Declaration>
         <Implementation>
           <ST><![CDATA[IF (__ISVALIDREF(_refActiveLamp)) THEN
+	_refActiveLamp.Off();
 	_refActiveLamp.Detach();
 END_IF
 
@@ -83,37 +84,5 @@ END_IF
         </Implementation>
       </Set>
     </Property>
-    <LineIds Name="FB_Controller">
-      <LineId Id="38" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_Controller.DimDown">
-      <LineId Id="5" Count="0" />
-      <LineId Id="103" Count="1" />
-    </LineIds>
-    <LineIds Name="FB_Controller.DimUp">
-      <LineId Id="12" Count="1" />
-      <LineId Id="10" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_Controller.Off">
-      <LineId Id="16" Count="1" />
-      <LineId Id="14" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_Controller.On">
-      <LineId Id="16" Count="1" />
-      <LineId Id="14" Count="0" />
-      <LineId Id="18" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_Controller.refActiveLamp.Get">
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_Controller.refActiveLamp.Set">
-      <LineId Id="17" Count="0" />
-      <LineId Id="8" Count="0" />
-      <LineId Id="18" Count="0" />
-      <LineId Id="20" Count="0" />
-      <LineId Id="2" Count="0" />
-      <LineId Id="22" Count="3" />
-      <LineId Id="21" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>
